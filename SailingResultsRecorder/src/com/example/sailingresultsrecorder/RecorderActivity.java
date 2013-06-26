@@ -1,4 +1,4 @@
-package com.idp.sailingresultsrecorder;
+package com.example.sailingresultsrecorder;
 
 import com.example.sailingresultsrecorder.R;
 
@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-public class MainActivity extends HeaderFooterActivity {
+public class RecorderActivity extends HeaderFooterActivity {
 	private CompetitorAdapter adapter;
 	private Competitor[] competitors;
 
@@ -18,7 +18,7 @@ public class MainActivity extends HeaderFooterActivity {
 		//setContentView(R.layout.main);
 		
 		ViewGroup vg = (ViewGroup) findViewById(R.id.listdata);
-		ViewGroup.inflate(MainActivity.this, R.layout.listview, vg);
+		ViewGroup.inflate(RecorderActivity.this, R.layout.listview, vg);
 		
 		Competitor c1 = new Competitor("166550", "Laser");
 		Competitor c2 = new Competitor("4327", "Laser 4000");

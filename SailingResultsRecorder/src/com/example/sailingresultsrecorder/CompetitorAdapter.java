@@ -1,4 +1,4 @@
-package com.idp.sailingresultsrecorder;
+package com.example.sailingresultsrecorder;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -125,7 +125,7 @@ public class CompetitorAdapter extends ArrayAdapter<Competitor> {
 			competitor.addLapTime(lap);
 			Log.v("IDP", "Lap clicked, " + competitor.getSailNo() + ", Lap Time " + competitor.getFinishTime() + ", No of Laps" + competitor.getNoOfLaps());
 			
-			MainActivity act = (MainActivity) context;
+			RecorderActivity act = (RecorderActivity) context;
 			act.updateListView();
 		}
 	}
@@ -145,7 +145,7 @@ public class CompetitorAdapter extends ArrayAdapter<Competitor> {
 			//competitor.addLapTime(finish);
 			Log.v("IDP", "Finish clicked, " + competitor.getSailNo() + ", " + competitor.getFinishTime() + ", No of Laps" + competitor.getNoOfLaps());
 			
-			MainActivity act = (MainActivity) context;			
+			RecorderActivity act = (RecorderActivity) context;			
 			act.updateListView();
 		}
 	}
@@ -165,7 +165,7 @@ public class CompetitorAdapter extends ArrayAdapter<Competitor> {
 			//competitor.addLapTime(finish);
 			Log.v("IDP", "UndoFinish clicked, " + competitor.getSailNo() + ", " + competitor.getFinishTime() + ", No of Laps" + competitor.getNoOfLaps());
 			
-			MainActivity act = (MainActivity) context;			
+			RecorderActivity act = (RecorderActivity) context;			
 			act.updateListView();
 		}
 	}

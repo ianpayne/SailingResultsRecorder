@@ -1,4 +1,4 @@
-package com.idp.sailingresultsrecorder;
+package com.example.sailingresultsrecorder;
 
 import com.example.sailingresultsrecorder.R;
 

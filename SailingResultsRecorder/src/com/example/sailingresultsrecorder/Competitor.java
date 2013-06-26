@@ -1,4 +1,4 @@
-package com.idp.sailingresultsrecorder;
+package com.example.sailingresultsrecorder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
