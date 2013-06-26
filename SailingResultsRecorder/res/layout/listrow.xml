@@ -5,7 +5,7 @@
     android:orientation="horizontal" >
 
     <LinearLayout
-        android:layout_width="96dp"
+        android:layout_width="72dp"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:orientation="vertical" >
@@ -15,36 +15,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:gravity="center_vertical"
+            android:text="TextView"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/txtClass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:text="TextView" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtStart"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:text="00:00:00" />
 
     <TextView
         android:id="@+id/txtTime"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:text="TextView" />
+        android:gravity="center_horizontal"
+        android:text="00:00:00" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/txtLaps"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:text="8" />
+
+    <Button
+        android:id="@+id/btnLap"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="56dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:text="Lap" />
+
+    <Button
+        android:id="@+id/btnCode"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="56dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:text="Code" />
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|right|start" >
-
-        <Button
-            android:id="@+id/btnLap"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="96dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:text="Lap" />
 
         <Button
             android:id="@+id/btnFinish"
@@ -54,6 +82,17 @@
             android:layout_gravity="center_vertical"
             android:text="Finish" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/btnUndoFinish"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:layout_alignLeft="@id/btnFinish"
+            android:layout_alignTop="@id/btnFinish"
+            android:enabled="false"
+            android:text="Undo\nFinish"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
 
 </LinearLayout>

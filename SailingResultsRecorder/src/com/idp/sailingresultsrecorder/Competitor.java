@@ -1,4 +1,4 @@
-package com.example.sailingresultsrecorder;
+package com.idp.sailingresultsrecorder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -74,5 +74,11 @@ public class Competitor implements Parcelable {
 	public void setFinishTime(String finishTime) {
 		this.addLapTime(finishTime);
 		this.finished = true;
+	}
+
+	public void undoFinish() {
+		// TODO Auto-generated method stub
+		this.finished = false;
+		lapTimes.remove(lapTimes.size() -1);
 	}
 }

@@ -1,4 +1,6 @@
-package com.example.sailingresultsrecorder;
+package com.idp.sailingresultsrecorder;
+
+import com.example.sailingresultsrecorder.R;
 
 import android.os.Bundle;
 import android.util.Log;

@@ -1,10 +1,13 @@
-package com.example.sailingresultsrecorder;
+package com.idp.sailingresultsrecorder;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+
+import com.example.sailingresultsrecorder.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -47,14 +50,18 @@ public class CompetitorAdapter extends ArrayAdapter<Competitor> {
 			holder = new Holder();
 			holder.sailNo = (TextView) row.findViewById(R.id.txtSailNo);
 			holder.boatClass = (TextView) row.findViewById(R.id.txtClass);
-			holder.finishTime = (TextView) row.findViewById(R.id.txtTime);
-			
+			holder.lapTime = (TextView) row.findViewById(R.id.txtTime);
+			holder.noOfLaps = (TextView) row.findViewById(R.id.txtLaps);
+						
 			holder.btnLap = (Button) row.findViewById(R.id.btnLap);
 			holder.btnLap.setOnClickListener(new onLapClickListener(competitor));
-
 			
 			holder.btnFinish = (Button) row.findViewById(R.id.btnFinish);
 			holder.btnFinish.setOnClickListener(new onFinishClickListener(competitor));
+			
+			holder.btnUndoFinish = (Button) row.findViewById(R.id.btnUndoFinish);
+			holder.btnUndoFinish.setOnClickListener(new onUndoFinishClickListener(competitor));
+			
 			Log.v("IDP", "row is null");
 		}
 		else {
@@ -65,7 +72,21 @@ public class CompetitorAdapter extends ArrayAdapter<Competitor> {
 		if (holder != null){
 			holder.sailNo.setText(competitor.getSailNo());
 			holder.boatClass.setText(competitor.getBoatClass());
-			holder.finishTime.setText(competitor.getFinishTime());
+			holder.lapTime.setText(competitor.getFinishTime());
+			holder.noOfLaps.setText(String.valueOf(competitor.getNoOfLaps()));
+			
+			if (competitor.isFinished()){
+				holder.btnFinish.setEnabled(false);
+				holder.btnFinish.setVisibility(View.INVISIBLE);
+				holder.btnUndoFinish.setEnabled(true);
+				holder.btnUndoFinish.setVisibility(View.VISIBLE);
+			}
+			else {
+				holder.btnFinish.setEnabled(true);
+				holder.btnFinish.setVisibility(View.VISIBLE);
+				holder.btnUndoFinish.setEnabled(false);
+				holder.btnUndoFinish.setVisibility(View.INVISIBLE);
+			}
 			Log.v("IDP", "holder is NOT null" + competitor.getFinishTime());
 		}
 		else {
@@ -80,9 +101,12 @@ public class CompetitorAdapter extends ArrayAdapter<Competitor> {
 	private static class Holder {
 		TextView sailNo;
 		TextView boatClass;
-		TextView finishTime;
+		TextView lapTime;
+		TextView noOfLaps;
 		Button btnLap;
 		Button btnFinish;
+		Button btnUndoFinish;
+		
 	}
 	
     
@@ -120,6 +144,26 @@ public class CompetitorAdapter extends ArrayAdapter<Competitor> {
 			competitor.setFinishTime(finish);
 			//competitor.addLapTime(finish);
 			Log.v("IDP", "Finish clicked, " + competitor.getSailNo() + ", " + competitor.getFinishTime() + ", No of Laps" + competitor.getNoOfLaps());
+			
+			MainActivity act = (MainActivity) context;			
+			act.updateListView();
+		}
+	}
+
+	private class onUndoFinishClickListener implements OnClickListener {
+		private Competitor competitor;
+		
+		public onUndoFinishClickListener(Competitor competitor){
+			this.competitor = competitor;
+		}
+		
+		@Override
+		public void onClick(View v){
+			//String finish = java.text.DateFormat.getTimeInstance(DateFormat.SHORT).format(Calendar.getInstance().getTime());
+			//String finish = getCurrentTimeStamp();
+			competitor.undoFinish();
+			//competitor.addLapTime(finish);
+			Log.v("IDP", "UndoFinish clicked, " + competitor.getSailNo() + ", " + competitor.getFinishTime() + ", No of Laps" + competitor.getNoOfLaps());
 			
 			MainActivity act = (MainActivity) context;			
 			act.updateListView();

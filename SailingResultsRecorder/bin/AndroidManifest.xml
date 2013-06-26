@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.sailingresultsrecorder.MainActivity"
+            android:name="com.idp.sailingresultsrecorder.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.sailingresultsrecorder.HeaderFooterActivity"
+            android:name="com.idp.sailingresultsrecorder.HeaderFooterActivity"
             android:label="@string/title_activity_header_footer" >
         </activity>
     </application>
